@@ -2,12 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Memory Match</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>Atrapalos ya!</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <h1>Hola mundo</h1>
+    <div id="root" class="container">
+      <header class="menu">
+        <img class="title-img"src="images/title.png">
+      </header>
+      <main>
+        <section class="home-page" id="home-page">
+          <div class="game-resume">
+            <p>Bienvenid@ a ATRAPALOS YA! <span>El juego donde podras convertirte en maestro Pokemon!</span></p>
+            <p>¿Como jugar?</p>
+              <p>1. Selecciona dos Pokebolas</p>
+              <p>2. Si los pokemones coinciden <span>¡Bravo! Ya son tuyos</span></p>
+              <p>3. Atrapalos todos <span class="query-text">antes de que se agote</span> <span>el tiempo.</span> <span class="query-text">¡Sino el</span> Equipo Rocket <span>se los llevara !</span></p>
+              <p class="center-text">Exito! <br>
+                ATTE Profesor Oak</p>
+          </div>
+          <div class="game-start">
+            <button class="start-button" id="start-button">Comenzar!</button>
+            <img src="images/profesorOak .png" alt="Profesor Oak" class="oak-home">
+          </div>
+        </section>
+        <section class="game-page" id="game-page">
+          <h1>Hola mundo</h1>
+        </section>
+        <section class="results-page" id="results-page"></section>
+      </main>
+      <footer class="footer">
+        <p>Derechos Reservados © 2021</p>
+        <p>A. Olea | K. Escobar</p>
+      </footer>
+    </div>
     <script src="main.js" type="module"></script>
   </body>
 </html>

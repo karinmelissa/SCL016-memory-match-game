@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Chau+Philomene+One&family=Roboto+Mono:wght@400;500&display=swap');
+*{
+    font-family: 'Roboto Mono', monospace;
+}
+html, body {
+    height: 100%;
+}
+
+.container{
+    margin:0px auto;
+    background-image: url("images/pokeBackground.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    background-size: auto 100%;
+}
+.menu{
+    text-align: center;
+    margin: 5px;
+}
+.title-img{
+    width: 35%;
+    height: auto;
+    margin-top: 10px;
+}
+.home-page{
+    display: grid;
+    justify-content: center;
+}
+.game-resume{
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255,65%);
+    display: inline-block;
+    color: rgb(46, 69, 149);
+    border: 2px solid #79CAF9;
+    border-radius: 30px;
+    width: 60%;
+    padding: 20px;
+    margin: 10px auto;
+    text-align: start;
+}
+.center-text{
+    text-align: center;
+}
+.game-start{
+    position: relative;
+    display: flex;
+}
+.start-button{
+    position: relative;
+    left: 40%;
+    margin-top: 10px;
+    color: #FEC10E;
+    font-size: 20px;
+    background-color: rgb(46, 69, 149);
+    padding: 10px;
+    border-radius: 60px;
+    border: 1.5px solid #79CAF9;
+    height: 60px;
+    width: 160px;
+    font-family: 'Chau Philomene One', sans-serif;
+}
+.oak-home{
+    position: relative;
+    left: 50%;
+    height: 350px;
+    width: auto;
+    top: -190px;
+}
+.footer{
+    color: rgb(46, 69, 149);
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    span{
+        display: block;
+    }
+    .title-img{
+        width: 80%;
+        height: auto;
+        margin-top: 5px;
+    }
+    .game-resume{
+        width: 90%;
+        height: 115%;
+    }
+    .oak-home{
+        left: 15%;
+        top: -250px;
+        height: 310px;
+        width: auto;
+    }
+    .center-text{
+        margin-right: 20%;
+    }
+    .start-button{
+        left: 20%;
+    }
+}
+@media (min-width:481px) and (max-width:840px){
+    .title-img{
+        width: 50%;
+    }
+    .game-resume{
+        width: 70%;
+    }
+    .oak-home{
+        left: 35%;
+        top: -220px;
+        height: 320px;
+        width: auto;
+    }
+    .query-text{
+        display: block;
+    }
+}

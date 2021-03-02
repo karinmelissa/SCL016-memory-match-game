@@ -1,3 +1,21 @@
 import App from './components/App.js';
+//Ocultamos todas las secciones excepto la principal
+document.getElementById('game-page').style.display = 'none';
+document.getElementById('results-page').style.display = 'none';
+//Llamamos elementos de DOM
+const startbutton = document.getElementById("start-button");
 
-document.getElementById('root').appendChild(App());
+function startGame() {
+    if (document.getElementById('game-page').style.display = 'none'){
+        document.getElementById('game-page').style.display = 'block';
+        document.getElementById('home-page').style.display = 'none';
+    }
+     //Titulo mas pequeño 
+    //Llamar funcion shuffle, sobreescribir HTML
+   
+    
+}
+
+startbutton.addEventListener("click", startGame);
+
+
