@@ -12,7 +12,6 @@ html, body {
     background-repeat:no-repeat;
     background-size: cover;
     box-sizing: border-box;
-    background-size: auto 100%;
 }
 .menu{
     text-align: center;
@@ -66,6 +65,12 @@ html, body {
     height: 350px;
     width: auto;
     top: -190px;
+}
+.card{
+    background-color: white;
+    border-radius: 100%;
+    border: 1px solid black;
+
 }
 .footer{
     color: rgb(46, 69, 149);
