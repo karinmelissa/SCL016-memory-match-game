@@ -69,10 +69,11 @@ html, body {
 .card-back{
     width: 120px;
 }
-.card-pokemon{
+.turned-card{
     background-color: white;
     border-radius: 100%;
     border: 1px solid black;
+    width: 120px;
 
 }
 .footer{

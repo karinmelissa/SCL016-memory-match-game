@@ -1,12 +1,16 @@
 import pokemon from '../data/pokemon/pokemon.js';
+//import Board from '../components/PointsBoard.js';
 
 //Creamos una array de pares de pokemones
 const pokemonList = [];
 for(const items of pokemon.items){
     pokemonList.push(items.id,items.id);
 }
+const cards = [];
 
 const App = () => {
+    /*const tablero =  document.createElement('div');
+    tablero.appendChild(Board());*/
     //Barajamos cartas con funcion shuffle
     const shuffle = (arr) =>{
         for(var i =arr.length-1 ; i>0 ;i--){
@@ -35,51 +39,52 @@ const App = () => {
             if(items.id === pokemonList[i]){
                 printCards.id = items.id;
                 printCards.addEventListener('click',turnCards);
-                /*const printPokemons = document.createElement('IMG');
-                printPokemons.className = 'card-pokemon';
-                printPokemons.id = items.id;
-                //printPokemons.src = items.image ;
-                pokeballs.appendChild(printPokemons);
-               printPokemos.addEventListener('click',turnCards())*/
             } 
         }
+        cards.push(printCards);
     }
-
     return pokeballs;
-
 };
+
+let turns = 0;
 const selectedCards = [];
 const turnCards = (e) => {
     //Con el id de la carta seleccionada, mostramos nuestra imagen de la base de datos
-    console.log(e.target.id);
-    const currentCardIndex = e.target.id ;
+    const currentCardIndex = e.target ;
     const imageUrl = pokemon.items.find(
-        (items) => items.id === currentCardIndex
+        (items) => items.id === currentCardIndex.id
     ).image; 
     e.target.setAttribute("src", `${imageUrl}`);
+    e.target.setAttribute("class",'turned-card');
     /*Creamos un array de largo 2, para comparar estas dos cartas
     De esta manera nos aseguramos que no se eligan mas de dos cartas
     Luego ingresamos el array en a funcion compare()*/
     selectedCards.push(currentCardIndex);
     if (selectedCards.length%2 === 0){
         compare(selectedCards);
-        console.log("turnos :" + selectedCards.length/2)
+        turns = selectedCards.length/2 ; 
     }
 }
+let pairs = 0;
 const compare = (e) => {
     const compareIndex = e.reverse();
-    if (compareIndex[0]== compareIndex[1]){
+    if (compareIndex[0].id== compareIndex[1].id){
+        pairs ++;
         console.log('son pares!')
+        console.log(pairs)
+        if (pairs == 9){
+            console.log('ganaste! uwu')
+        }
     }
     else{
         setTimeout(function(){
-            console.log('aca hay que dar vuelta las cartas que no son pares uwu')
-            /*pairOfCards[0].setAttribute("src", 'images/pokeball.png');
-            pairOfCards[1].setAttribute("src", 'images/pokeball.png');*/
-        }
-        )
+            console.log('aca hay que dar vuelta las cartas que no son pares uwu');
+            turnCardBack(compareIndex[0]);
+            turnCardBack(compareIndex[1]);
+        }, 1000);
     }
-
-
+}
+const turnCardBack = (card) => {
+    card.setAttribute("src", 'images/pokeball.png');
 }
 export default App;
