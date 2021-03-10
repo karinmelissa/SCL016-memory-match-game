@@ -66,14 +66,24 @@ html, body {
     width: auto;
     top: -190px;
 }
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    width: 70%;
+}
 .card-back{
     width: 120px;
+    margin: 10px;
 }
 .turned-card{
     background-color: white;
     border-radius: 100%;
     border: 1px solid black;
     width: 120px;
+    margin: 10px;
 
 }
 .footer{

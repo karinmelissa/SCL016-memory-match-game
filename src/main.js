@@ -11,10 +11,6 @@ function startGame() {
         document.getElementById('home-page').style.display = 'none';
     }
     document.getElementById('cards-placeholder').appendChild(App());
-     //Titulo mas pequeño 
-     //const title = document.getElementsByClassName('title-img');
-     //title.style.height = '87px';
-    //Llamar funcion shuffle, sobreescribir HTML
 }
 
 startbutton.addEventListener("click", startGame);

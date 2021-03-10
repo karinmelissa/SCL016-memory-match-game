@@ -1,5 +1,6 @@
 import pokemon from '../data/pokemon/pokemon.js';
-//import Board from '../components/PointsBoard.js';
+import createTimer from '../components/Timer.js';
+import Results from '../components/Results.js'
 
 //Creamos una array de pares de pokemones
 const pokemonList = [];
@@ -9,8 +10,10 @@ for(const items of pokemon.items){
 const cards = [];
 
 const App = () => {
-    /*const tablero =  document.createElement('div');
-    tablero.appendChild(Board());*/
+    const gameBoard =  document.createElement('div');
+    const  turnsText = document.createElement('p');
+    let turnsNumber = document.createTextNode("Turnos jugados :" + turns);
+    turnsText.appendChild(turnsNumber);
     //Barajamos cartas con funcion shuffle
     const shuffle = (arr) =>{
         for(var i =arr.length-1 ; i>0 ;i--){
@@ -34,8 +37,7 @@ const App = () => {
         Si el pokemos de nuestra lista barajada coincide
         con el id de nuestra base de datos
         se guarda la imagen y se crea
-        un elemento <img> en HTML dentro de nuestro <div>
-        */
+        un elemento <img> en HTML dentro de nuestro <div>*/
             if(items.id === pokemonList[i]){
                 printCards.id = items.id;
                 printCards.addEventListener('click',turnCards);
@@ -43,7 +45,10 @@ const App = () => {
         }
         cards.push(printCards);
     }
-    return pokeballs;
+    gameBoard.appendChild(turnsNumber);
+    gameBoard.appendChild(createTimer());
+    gameBoard.appendChild(pokeballs);
+    return gameBoard;
 };
 
 let turns = 0;
@@ -63,22 +68,27 @@ const turnCards = (e) => {
     if (selectedCards.length%2 === 0){
         compare(selectedCards);
         turns = selectedCards.length/2 ; 
+        console.log('turnos' + turns)
     }
 }
 let pairs = 0;
 const compare = (e) => {
     const compareIndex = e.reverse();
     if (compareIndex[0].id== compareIndex[1].id){
+        (compareIndex[0]).removeEventListener('click',turnCards);
+        (compareIndex[1]).removeEventListener('click',turnCards);
         pairs ++;
-        console.log('son pares!')
-        console.log(pairs)
-        if (pairs == 9){
-            console.log('ganaste! uwu')
+        console.log(pairs);
+        if (pairs === 9){
+            document.getElementById('results-page').style.display = 'block';
+            document.getElementById('game-page').style.display = 'none';
+            const showResults = document.getElementById('show-results');
+            showResults.appendChild(Results());
+
         }
     }
     else{
         setTimeout(function(){
-            console.log('aca hay que dar vuelta las cartas que no son pares uwu');
             turnCardBack(compareIndex[0]);
             turnCardBack(compareIndex[1]);
         }, 1000);
