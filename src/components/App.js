@@ -8,10 +8,14 @@ for(const items of pokemon.items){
     pokemonList.push(items.id,items.id);
 }
 const cards = [];
+let turns = 0;
 
 const App = () => {
     const gameBoard =  document.createElement('div');
+    const boardContainer =  document.createElement('div');
     const  turnsText = document.createElement('p');
+    turnsText.id= 'playedTurns';
+    turnsText.className = 'played-turns';
     let turnsNumber = document.createTextNode("Turnos jugados :" + turns);
     turnsText.appendChild(turnsNumber);
     //Barajamos cartas con funcion shuffle
@@ -45,13 +49,13 @@ const App = () => {
         }
         cards.push(printCards);
     }
-    gameBoard.appendChild(turnsNumber);
-    gameBoard.appendChild(createTimer());
+    boardContainer.appendChild(turnsText);
+    //boardContainer.appendChild(createTimer());
+    gameBoard.appendChild(boardContainer);
     gameBoard.appendChild(pokeballs);
     return gameBoard;
 };
 
-let turns = 0;
 const selectedCards = [];
 const turnCards = (e) => {
     //Con el id de la carta seleccionada, mostramos nuestra imagen de la base de datos
@@ -68,8 +72,10 @@ const turnCards = (e) => {
     if (selectedCards.length%2 === 0){
         compare(selectedCards);
         turns = selectedCards.length/2 ; 
-        console.log('turnos' + turns)
+        let playedTurns = document.getElementById('playedTurns');
+        playedTurns.innerText = "Turnos jugados :" + turns;
     }
+    return turns 
 }
 let pairs = 0;
 const compare = (e) => {
@@ -80,11 +86,13 @@ const compare = (e) => {
         pairs ++;
         console.log(pairs);
         if (pairs === 9){
-            document.getElementById('results-page').style.display = 'block';
-            document.getElementById('game-page').style.display = 'none';
-            const showResults = document.getElementById('show-results');
-            showResults.appendChild(Results());
-
+            setTimeout(function(){
+                document.getElementById('results-page').style.display = 'block';
+                document.getElementById('game-page').style.display = 'none';
+                const showResults = document.getElementById('show-results');
+                showResults.appendChild(Results());
+            }
+            ,1000);
         }
     }
     else{

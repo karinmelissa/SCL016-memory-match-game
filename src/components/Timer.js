@@ -11,19 +11,20 @@ const createTimer = () => {
         secons = '0'+secons;
     }
     const textTimer= minutes.toString() + ':' + secons;
-    timer.innerHTML = textTimer;
+    timer.innerText = textTimer;
+    if (gSecons===0){
+        return
+    }
     gSecons --;
-
+    //console.log(timer)
     return timer
 }
-const startCounter = () => {
-    intervalHandle=setInterval(createTimer,1000);
+
+const startButton = document.getElementById('start-button');
+const startCounter =() =>{
+        intervalHandle=setInterval(createTimer,1000);
+        //startCounter();
 }
-window.onload = function(){
-    const startButton = document.getElementById('start-button');
-    startButton.onclick=function(){
-        startCounter();
-    }
-}
+startButton.addEventListener('click', startCounter)
 
 export default createTimer;

@@ -66,6 +66,8 @@ html, body {
     width: auto;
     top: -190px;
 }
+.played-turns{
+}
 .cards{
     display: flex;
     flex-wrap: wrap;
