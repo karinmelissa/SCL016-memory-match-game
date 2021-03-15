@@ -86,7 +86,14 @@ html, body {
     border: 1px solid black;
     width: 120px;
     margin: 10px;
-
+}
+.results-holder{
+    width: 40%;
+    background-color: rgb(255, 255, 255,65%);
+    color: rgb(46, 69, 149);
+    border: 2px solid #79CAF9;
+    border-radius: 30px;
+    text-align: center;
 }
 .footer{
     color: rgb(46, 69, 149);

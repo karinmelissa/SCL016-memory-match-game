@@ -13,10 +13,12 @@ let turns = 0;
 const App = () => {
     const gameBoard =  document.createElement('div');
     const boardContainer =  document.createElement('div');
+    boardContainer.id = ('boardContainer');
     const  turnsText = document.createElement('p');
     turnsText.id= 'playedTurns';
     turnsText.className = 'played-turns';
     let turnsNumber = document.createTextNode("Turnos jugados :" + turns);
+    turnsNumber.id = 'turns';
     turnsText.appendChild(turnsNumber);
     //Barajamos cartas con funcion shuffle
     const shuffle = (arr) =>{
@@ -50,7 +52,7 @@ const App = () => {
         cards.push(printCards);
     }
     boardContainer.appendChild(turnsText);
-    //boardContainer.appendChild(createTimer());
+    boardContainer.appendChild(createTimer());
     gameBoard.appendChild(boardContainer);
     gameBoard.appendChild(pokeballs);
     return gameBoard;
@@ -79,18 +81,19 @@ const turnCards = (e) => {
 }
 let pairs = 0;
 const compare = (e) => {
+    const playedTime = timer.innerText;
     const compareIndex = e.reverse();
     if (compareIndex[0].id== compareIndex[1].id){
         (compareIndex[0]).removeEventListener('click',turnCards);
         (compareIndex[1]).removeEventListener('click',turnCards);
         pairs ++;
-        console.log(pairs);
+        console.log(playedTime);
         if (pairs === 9){
             setTimeout(function(){
                 document.getElementById('results-page').style.display = 'block';
                 document.getElementById('game-page').style.display = 'none';
                 const showResults = document.getElementById('show-results');
-                showResults.appendChild(Results());
+                showResults.appendChild(Results(turns,playedTime));
             }
             ,1000);
         }
@@ -105,4 +108,5 @@ const compare = (e) => {
 const turnCardBack = (card) => {
     card.setAttribute("src", 'images/pokeball.png');
 }
+
 export default App;
