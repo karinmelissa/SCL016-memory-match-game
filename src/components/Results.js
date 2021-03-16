@@ -6,14 +6,11 @@ const Results = (turns,time) =>{
     showResults.className = 'results-holder';
     const finalText = document.createElement('h2');
     const finalparagraph = document.createElement('p');
-    if(time ==='0:00'){
-        console.log('equipo rocket');
-
-    }
-    else if(turns<17){
+    if(turns<17){
         //Mostrar tres estrellas
         let excelenteText = document.createTextNode('¡¡Excelente!!');
         finalText.appendChild(excelenteText);
+        showResults.appendChild(finalText);
         for(let i=0;i<3;i++){
             const stars = document.createElement('img');
             stars.src = 'images/star.png';
@@ -23,10 +20,10 @@ const Results = (turns,time) =>{
         finalparagraph.appendChild(text);
     }
     else if(turns<30){
-        console.log('Deberia mostrar 2 estrellas');
         //Mostrar 2 estrellas
         let bienText = document.createTextNode('¡¡Bien Hecho!!');
         finalText.appendChild(bienText);
+        showResults.appendChild(finalText);
         for(let i=0;i<2;i++){
             const stars = document.createElement('img');
             stars.src = 'images/star.png';
@@ -36,9 +33,9 @@ const Results = (turns,time) =>{
         finalparagraph.appendChild(text);
     }
     else{
-        console.log('Deberia mostrar 1 estrellas');
         //Mostrar 1 estrella
         finalText.appendChild(vamosText);
+        showResults.appendChild(finalText);
         let vamosText = document.createTextNode('¡¡Vamos!!');
         const stars = document.createElement('img');
         stars.src = 'images/star.png';
@@ -47,7 +44,6 @@ const Results = (turns,time) =>{
         finalparagraph.appendChild(text);
     }
     showResults.appendChild(finalparagraph);
-    showResults.appendChild(finalText);
 
     return showResults;
 }

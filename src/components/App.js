@@ -81,13 +81,13 @@ const turnCards = (e) => {
 }
 let pairs = 0;
 const compare = (e) => {
+    const timer = document.getElementById('timer');
     const playedTime = timer.innerText;
     const compareIndex = e.reverse();
     if (compareIndex[0].id== compareIndex[1].id){
         (compareIndex[0]).removeEventListener('click',turnCards);
         (compareIndex[1]).removeEventListener('click',turnCards);
         pairs ++;
-        console.log(playedTime);
         if (pairs === 9){
             setTimeout(function(){
                 document.getElementById('results-page').style.display = 'block';

@@ -1,9 +1,22 @@
+import Lost from '../components/Lost.js';
+
 let gSecons = 120; 
-let intervalHandle;
+let intervalHandle = 0; 
 const timer = document.createElement('div');
 timer.id = 'timer';
 
 const createTimer = () => {
+    if (gSecons===0){
+        stopCounter();
+        console.log('perdiste');
+        setTimeout(function(){
+            document.getElementById('results-page').style.display = 'block';
+            document.getElementById('game-page').style.display = 'none';
+            const showResults = document.getElementById('show-results');
+            showResults.appendChild(Lost());
+        }
+        ,1000);
+    }
     let minutes= Math.floor(gSecons/60);
     let secons =gSecons-(minutes*60);
     /*Si los segundos son menores a 10
@@ -13,17 +26,19 @@ const createTimer = () => {
     }
     const textTimer= minutes.toString() + ':' + secons;
     timer.innerText = textTimer;
-    if (gSecons===0){
-        return 
-    }
     gSecons --;
     return timer
 }
 
 const startButton = document.getElementById('start-button');
 const startCounter =() =>{
-        intervalHandle=setInterval(createTimer,1000);
+    intervalHandle=setInterval(createTimer,1000);
 }
-startButton.addEventListener('click', startCounter)
+const stopCounter =() =>{
+    clearInterval(intervalHandle);
+}
+ if (startButton){
+    startButton.addEventListener('click', startCounter);
+ }
 
 export default createTimer;
