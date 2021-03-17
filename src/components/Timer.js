@@ -3,7 +3,9 @@ import Lost from '../components/Lost.js';
 let gSecons = 120; 
 let intervalHandle = 0; 
 const timer = document.createElement('div');
+timer.innerHTML = ('<i class="far fa-clock"></i>');
 timer.id = 'timer';
+timer.className = ('timer');
 
 const createTimer = () => {
     if (gSecons===0){
@@ -34,11 +36,11 @@ const startButton = document.getElementById('start-button');
 const startCounter =() =>{
     intervalHandle=setInterval(createTimer,1000);
 }
-const stopCounter =() =>{
+export const stopCounter =() =>{
     clearInterval(intervalHandle);
 }
- if (startButton){
+if (startButton){
     startButton.addEventListener('click', startCounter);
- }
+}
 
 export default createTimer;

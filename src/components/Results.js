@@ -6,7 +6,13 @@ const Results = (turns,time) =>{
     showResults.className = 'results-holder';
     const finalText = document.createElement('h2');
     const finalparagraph = document.createElement('p');
-    if(turns<17){
+    const playAgain = document.createElement('button');
+    playAgain.className = ('start-button');
+    const pikachuAsh = document.createElement('img');
+    pikachuAsh.src = 'images/ash-pikachu.png';
+    pikachuAsh.className = ('pikachu-ash');
+
+    if(turns<20){
         //Mostrar tres estrellas
         let excelenteText = document.createTextNode('¡¡Excelente!!');
         finalText.appendChild(excelenteText);
@@ -43,6 +49,7 @@ const Results = (turns,time) =>{
         let text = document.createTextNode('No te rindas! Debes seguir aprendiendo, el camino para convertirte en maestro Pokemon es arduo, intentalo nuevamente!');
         finalparagraph.appendChild(text);
     }
+    showResults.appendChild(playAgain);
     showResults.appendChild(finalparagraph);
 
     return showResults;
