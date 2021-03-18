@@ -1,7 +1,7 @@
 import pokemon from '../data/pokemon/pokemon.js';
-import createTimer from '../components/Timer.js';
+import {createTimer,stopCounter} from '../components/Timer.js';
 import Results from '../components/Results.js';
-import stopCounter from '../components/Timer.js';
+//import stopCounter from '../components/Timer.js';
 
 //Creamos una array de pares de pokemones
 const pokemonList = [];
@@ -22,6 +22,8 @@ const App = () => {
     let turnsNumber = document.createTextNode("Turnos jugados :" + turns);
     turnsNumber.id = 'turns';
     turnsText.appendChild(turnsNumber);
+    const clockIcon = document.createElement('span');
+    clockIcon.className = 'far fa-clock';
     //Barajamos cartas con funcion shuffle
     const shuffle = (arr) =>{
         for(var i =arr.length-1 ; i>0 ;i--){
@@ -54,6 +56,7 @@ const App = () => {
         cards.push(printCards);
     }
     boardContainer.appendChild(turnsText);
+    boardContainer.appendChild(clockIcon);
     boardContainer.appendChild(createTimer());
     gameBoard.appendChild(boardContainer);
     gameBoard.appendChild(pokeballs);
@@ -72,6 +75,7 @@ const turnCards = (e) => {
     /*Creamos un array de largo 2, para comparar estas dos cartas
     De esta manera nos aseguramos que no se eligan mas de dos cartas
     Luego ingresamos el array en a funcion compare()*/
+    e.target.removeEventListener('click',turnCards);
     selectedCards.push(currentCardIndex);
     if (selectedCards.length%2 === 0){
         compare(selectedCards);
@@ -87,8 +91,6 @@ const compare = (e) => {
     const playedTime = timer.innerText;
     const compareIndex = e.reverse();
     if (compareIndex[0].id== compareIndex[1].id){
-        (compareIndex[0]).removeEventListener('click',turnCards);
-        (compareIndex[1]).removeEventListener('click',turnCards);
         pairs ++;
         if (pairs === 9){
             stopCounter();
@@ -103,6 +105,8 @@ const compare = (e) => {
     }
     else{
         setTimeout(function(){
+            compareIndex[0].addEventListener('click',turnCards);
+            compareIndex[1].addEventListener('click',turnCards);
             turnCardBack(compareIndex[0]);
             turnCardBack(compareIndex[1]);
         }, 1000);
