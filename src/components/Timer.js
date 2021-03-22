@@ -1,16 +1,14 @@
 import Lost from '../components/Lost.js';
 
-let gSecons = 120; 
+let gSecons = 10; 
 let intervalHandle = 0; 
 const timer = document.createElement('div');
-//timer.innerHTML = ('<i class="far fa-clock"></i>');
 timer.id = 'timer';
 timer.className = ('timer');
 
 const createTimer = () => {
     if (gSecons===0){
         stopCounter();
-        console.log('perdiste');
         setTimeout(function(){
             document.getElementById('results-page').style.display = 'block';
             document.getElementById('game-page').style.display = 'none';

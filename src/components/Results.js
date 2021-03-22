@@ -5,13 +5,17 @@ const Results = (turns,time) =>{
     const starsHolder = document.createElement('div');
     const finalparagraph = document.createElement('p');
     const finalparagraph2 = document.createElement('p');
+    finalparagraph.className = 'final-text';
+    finalparagraph2.className = 'final-text'; 
     const playAgain = document.createElement('button');
     playAgain.className = 'again-button';
     playAgain.id = 'again-button';
     playAgain.innerText = 'Jugar otra vez';
+    playAgain.addEventListener('click',newGame);
     const pikachuAsh = document.createElement('img');
     pikachuAsh.src = 'images/ash-pikachu.png';
     pikachuAsh.className = ('pikachu-ash');
+    console.log(time);
 
     if(turns<20){
         //Mostrar tres estrellas
@@ -69,8 +73,8 @@ const Results = (turns,time) =>{
 }
 
 //Crear funcion de boton para comenzar juego nuevamente jijiji;
-const playAgain = () =>{
-    
+const newGame = () =>{  
+    location.reload();
 }
 
 export default Results;

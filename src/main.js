@@ -15,4 +15,3 @@ function startGame() {
 
 startbutton.addEventListener("click", startGame);
 
-

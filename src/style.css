@@ -33,7 +33,7 @@ html, body {
     color: rgb(46, 69, 149);
     border: 2px solid #79CAF9;
     border-radius: 30px;
-    width: 60%;
+    width: 75%;
     padding: 20px;
     margin: 10px auto;
     text-align: start;
@@ -69,19 +69,27 @@ html, body {
 }
 .oak-home{
     position: relative;
-    left: 50%;
+    left: 60%;
     height: 350px;
     width: auto;
-    top: -190px;
+    top: -250px;
 }
 .played-turns,
 .timer{
     display: inline;
     width: 200px;
 }
-.start-icons{
+.start-icons,
+.pokeballs-icons{
     position: relative;
     top: 7px;
+}
+.pokeballs-icons{
+    content:url('images/littlePokebals.png');
+    background-repeat: no-repeat;
+    width: auto; 
+    height: auto; 
+
 }
 .cards{
     display: flex;
@@ -197,20 +205,76 @@ h2{
         margin-top: 5px;
     }
     .game-resume{
-        width: 90%;
-        height: 115%;
+        width: 95%;
+        height: 120%;
+        margin: 0px auto;
+        padding: 10px;
     }
     .oak-home{
-        left: 15%;
-        top: -250px;
-        height: 310px;
+        left: 10%;
+        top: -205px;
+        height: 290px;
         width: auto;
     }
     .center-text{
-        margin-right: 20%;
+        margin-right: 30%;
     }
     .start-button{
+        left: 13%;
+    }
+    .pokeballs-icons{
+        content:url('images/one-littlepokeball.png');
+        background-repeat: no-repeat;
+        width: auto; 
+        height: auto; 
+    }
+    .cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: auto;
+        align-items: center;
+        width: 90%;
+    }
+    .card-back,
+    .turned-card{
+        width: 90px;
+    }
+    .results-holder{
+        width: 95%;
+        padding: 10px;
+        height: 500px;
+    }
+    .lost-holder{
+        width: 95%;
+        padding: 10px;
+        height: 600px;
+        margin: 0px auto;
+    }
+    .rocket-team{
+        height: 260px;
+        width: auto;
+        top: -87%;
+        left: 0%;
+    }
+    .meowtext{
+        margin-top: 70%;
+    }
+    .again-button{
+        left: -25%;
+        top: 5%;
+    }
+    .tryagain-button{
+        top: -7%;
+    }
+    .pikachu-ash{
+        height: 350px;
+        width: auto;
+        top: -50%;
         left: 20%;
+    }
+    .final-text{
+        width: 180px;
     }
 }
 @media (min-width:481px) and (max-width:840px){
