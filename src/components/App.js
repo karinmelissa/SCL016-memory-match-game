@@ -1,7 +1,6 @@
 import pokemon from '../data/pokemon/pokemon.js';
 import {createTimer,stopCounter} from '../components/Timer.js';
 import Results from '../components/Results.js';
-//import stopCounter from '../components/Timer.js';
 
 //Creamos una array de pares de pokemones
 const pokemonList = [];
@@ -87,8 +86,6 @@ const turnCards = (e) => {
 }
 let pairs = 0;
 const compare = (e) => {
-    const timer = document.getElementById('timer');
-    const playedTime = timer.innerText;
     const compareIndex = e.reverse();
     if (compareIndex[0].id== compareIndex[1].id){
         pairs ++;
@@ -98,7 +95,7 @@ const compare = (e) => {
                 document.getElementById('results-page').style.display = 'block';
                 document.getElementById('game-page').style.display = 'none';
                 const showResults = document.getElementById('show-results');
-                showResults.appendChild(Results(turns,playedTime));
+                showResults.appendChild(Results(turns));
             }
             ,1000);
         }

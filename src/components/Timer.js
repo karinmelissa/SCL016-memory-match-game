@@ -1,6 +1,6 @@
 import Lost from '../components/Lost.js';
 
-let gSecons = 10; 
+let gSecons = 120; 
 let intervalHandle = 0; 
 const timer = document.createElement('div');
 timer.id = 'timer';

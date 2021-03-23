@@ -1,7 +1,8 @@
-const Results = (turns,time) =>{
+const Results = (turns) =>{
     const showResults = document.createElement('div');
     showResults.className = 'results-holder';
     const finalText = document.createElement('h2');
+    finalText.className = 'final-greeting';
     const starsHolder = document.createElement('div');
     const finalparagraph = document.createElement('p');
     const finalparagraph2 = document.createElement('p');
@@ -15,7 +16,6 @@ const Results = (turns,time) =>{
     const pikachuAsh = document.createElement('img');
     pikachuAsh.src = 'images/ash-pikachu.png';
     pikachuAsh.className = ('pikachu-ash');
-    console.log(time);
 
     if(turns<20){
         //Mostrar tres estrellas
@@ -50,7 +50,6 @@ const Results = (turns,time) =>{
         finalparagraph2.appendChild(text2);
     }
     else{
-        console.log('hola')
         //Mostrar 1 estrella
         let vamosText = document.createTextNode('¡¡Vamos!!');
         finalText.appendChild(vamosText);
