@@ -2,7 +2,6 @@ import App from './App.js';
 import Lost from './Lost.js';
 import Results from './Results.js';
 import {createTimer,stopCounter} from './Timer.js';
-//import Lost from './Lost.js';
 
 describe('App', () => {
   it('should render without crashing', () => {
@@ -21,19 +20,19 @@ describe('Results', () =>{
   });
 
   it("should work for 3 stars", () => {
-    Results(18);
-    const finalText = document.getElementsByClassName('final-greeting');
-    expect(finalText).toBe("¡¡Excelente!!");
+    const winner = Results(18);
+    const finalText = winner.getElementsByClassName('final-greeting');
+    expect(finalText[0].textContent).toBe('¡¡Excelente!!');
   });
   it("should work for 2 stars", () => {
-    Results(21);
-    const finalText = document.getElementsByClassName('final-greeting');
-    expect(finalText).toBe("¡¡Bien Hecho!!");
+    const winner = Results(21);
+    const finalText = winner.getElementsByClassName('final-greeting');
+    expect(finalText[0].textContent).toBe("¡¡Bien Hecho!!");
   });
   it("should work for 1 stars", () => {
-    Results(31);
-    const finalText = document.getElementsByClassName('final-greeting');
-    expect(finalText).toBe("¡¡Vamos!!");
+    const winner = Results(31);
+    const finalText = winner.getElementsByClassName('final-greeting');
+    expect(finalText[0].textContent).toBe("¡¡Vamos!!");
   });
   
 

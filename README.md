@@ -1,4 +1,4 @@
-# Memory Match Game
+# Memory Match Game - Atrapalos ya!
 
 Project: Pokemon Memory Match Game
 Developers:
@@ -57,11 +57,11 @@ Es un juego que proporciona entretención y ayuda a ejercitar la memoria.
 
 ## 5. Prototipo
 Primer borrador de prototipo en papel 
-![Prototipo papel (card game)](src\images\prototipo-papel.png)
+![Prototipo papel (card game)](src/images/prototipo-papel.png)
 
 Primer diseño de prototipo, este fue mostrado a nuestros usuaries para obtener feedback.
 
-![Primer prototipo (Atrapalos ya!)](src\images\Primer-pototipo.PNG)
+![Primer prototipo (Atrapalos ya!)](src/images/Primer-pototipo.PNG)
 
 ### Feedback de usuario
 
@@ -93,9 +93,9 @@ Pero no se preocupen! Siempre se puede intentar nuevamente.
 Gracias a la investgacion de la tematica escogida y el feedback de nuestros usuaries, desarrollamos finalmente nuestro prototipo fina de intefaz 
 
 Prototipo para movil
-![Prototipo movil (Atrapalos ya!)](src\images\Prototipo-movil.PNG)
+![Prototipo movil (Atrapalos ya!)](src/images/Prototipo-movil.PNG)
 
 Prototipo para escritorio
 
-![Primer escritorio (Atrapalos ya!)](src\images\Prototipo-desktop.PNG)
+![Prototipo escritorio (Atrapalos ya!)](src/images/Prototipo-desktop.PNG)
 
